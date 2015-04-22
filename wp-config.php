@@ -14,7 +14,7 @@ require __DIR__.'/bootstrap/autoload.php';
 
 /** Load config variables */
 
-$configdir = env('WP_ENV') ? 'config/' : 'config/local/';
+$configdir = env('WP_ENV') == 'local' ? 'config/local/' : 'config';
 
 $database = require_once $configdir . 'database.php';
 $theme = require_once 'config/theme.php';
