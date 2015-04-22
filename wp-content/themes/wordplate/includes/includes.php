@@ -3,7 +3,7 @@
 /**
  * Register custom post types.
  */
-require get_template_directory().'/includes/post-types/book.php';
+//require get_template_directory().'/includes/post-types/book.php';
 
 /**
  * Register menus.
