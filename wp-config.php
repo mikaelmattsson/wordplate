@@ -40,9 +40,15 @@ define('DB_CHARSET', $database['charset']);
 /** The Database Collate type. Don't change this if in doubt. */
 define('DB_COLLATE', $database['collate']);
 
+/** Set the home url to the root the current domain */
+define('WP_HOME', env('WP_HOME', 'http://'.$_SERVER['HTTP_HOST']));
+
+/** Custom wordpress directory */
+define('WP_SITEURL', WP_HOME . '/wordpress');
+
 /** Custom content directory. */
 define('WP_CONTENT_DIR', __DIR__.'/wp-content');
-define('WP_CONTENT_URL', 'http://'.$_SERVER['HTTP_HOST'] . '/wp-content');
+define('WP_CONTENT_URL', WP_HOME . '/wp-content');
 
 /** Set the trash to less days to optimize WordPress. */
 define('EMPTY_TRASH_DAYS', 7);
