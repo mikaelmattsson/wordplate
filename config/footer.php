@@ -12,6 +12,6 @@ return [
     |
     */
 
-    'footer_text' => 'Thank you for creating with <a href="http://github.com/wordplate/wordplate" target="_blank">WordPlate</a>.',
+    'footer_text' => 'Thank you for creating with <a href="http://www.wallmanderco.se" target="_blank">Wallmander & Co</a>.',
 
 ];

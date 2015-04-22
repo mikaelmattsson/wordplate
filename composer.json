@@ -1,7 +1,7 @@
 {
-    "name": "wordplate/wordplate",
+    "name": "mikaelmattsson/wordplate",
     "description": "The WordPlate Boilerplate.",
-    "keywords": ["wordplate", "wordpress", "boilerplate"],
+    "homepage": "https://github.com/mikaelmattsson/wordplate",
     "license": "MIT",
     "authors": [
         {
@@ -24,7 +24,7 @@
     ],
     "scripts": {
         "post-create-project-cmd": [
-            "php -r \"copy('.env.example', '.env');\"",
+            "php -r \"copy('config/database.php', 'config/local/database.php');\"",
             "rm README.md LICENSE CHANGELOG.md CONTRIBUTING.md .styleci.yml"
         ]
     },
@@ -33,11 +33,11 @@
             "dev-master": "2.2-dev"
         },
         "installer-paths": {
-            "public/wp-content/mu-plugins/{$name}": ["type:wordpress-muplugin"],
-            "public/wp-content/plugins/{$name}": ["type:wordpress-plugin"],
-            "public/wp-content/themes/{$name}": ["type:wordpress-theme"]
+            "wp-content/mu-plugins/{$name}": ["type:wordpress-muplugin"],
+            "wp-content/plugins/{$name}": ["type:wordpress-plugin"],
+            "wp-content/themes/{$name}": ["type:wordpress-theme"]
         },
-        "wordpress-install-dir": "public/wordpress"
+        "wordpress-install-dir": "wordpress"
     },
     "minimum-stability": "dev",
     "prefer-stable": true
