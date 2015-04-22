@@ -26,7 +26,7 @@ return [
             'comments',
             'dashboard',
             'links',
-            'media',
+            //'media',
             'plugins',
             'settings',
             'tools',
@@ -36,9 +36,9 @@ return [
         // Hidden for user with admin capabilities.
         'administrator' => [
             'comments',
-            'dashboard',
+            //'dashboard',
             'links',
-            'media',
+            //'media',
         ]
 
     ],
@@ -56,9 +56,9 @@ return [
     'remove_menu_bar_links' => [
         'comments',
         'wp-logo',
-        'edit',
+        //'edit',
         'appearance',
-        'view',
+        //'view',
         'new-content',
         'updates',
         'search',
