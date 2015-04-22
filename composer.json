@@ -24,6 +24,7 @@
     ],
     "scripts": {
         "post-create-project-cmd": [
+            "php -r \"copy('.env.example', '.env');\"",
             "php -r \"copy('config/database.php', 'config/local/database.php');\"",
             "rm README.md LICENSE CHANGELOG.md CONTRIBUTING.md .styleci.yml"
         ]
