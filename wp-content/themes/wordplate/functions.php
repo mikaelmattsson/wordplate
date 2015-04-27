@@ -27,6 +27,9 @@ add_action('after_setup_theme', function () {
     // $formats = ['aside', 'gallery', 'image', 'link', 'quote', 'video', 'audio'];
     // add_theme_support('post-formats', $formats);
 
+    // Add title tag theme support.
+    add_theme_support('title-tag');
+
     // Show the admin bar.
     show_admin_bar(false);
 });
@@ -38,7 +41,7 @@ add_action('after_setup_theme', function () {
  */
 add_action('wp_enqueue_scripts', function () {
     wp_deregister_script('jquery');
-    
+
     // wp_enqueue_style('wordplate', get_template_directory_uri().'/assets/styles/wordplate.css');
     // wp_register_script('wordplate', get_template_directory_uri().'/assets/scripts/wordplate.js', '', '', true);
 
@@ -46,7 +49,7 @@ add_action('wp_enqueue_scripts', function () {
 });
 
 /**
- * Configure Default Title.
+ * Configure default title.
  *
  * @return string
  */
@@ -66,7 +69,7 @@ add_filter('wp_title', function ($title) {
 });
 
 /**
- * Configure Excerpt String.
+ * Configure excerpt string.
  *
  * @return string
  */
@@ -75,10 +78,10 @@ add_filter('excerpt_more', function () {
 });
 
 /**
- * Change Default Excerpt Length (default: 55).
+ * Change default excerpt length (default: 55).
  *
  * @return int
  */
 add_filter('excerpt_length', function () {
-    return 55;
+    return 101;
 });

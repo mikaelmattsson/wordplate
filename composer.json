@@ -1,7 +1,7 @@
 {
-    "name": "mikaelmattsson/wordplate",
+    "name": "wordplate/wordplate",
     "description": "The WordPlate Boilerplate.",
-    "homepage": "https://github.com/mikaelmattsson/wordplate",
+    "keywords": ["wordplate", "wordpress", "boilerplate"],
     "license": "MIT",
     "authors": [
         {
@@ -10,7 +10,7 @@
         }
     ],
     "require": {
-        "wordplate/framework": "2.1.*",
+        "wordplate/framework": "2.2.*",
         "wpackagist-plugin/advanced-custom-fields": "~4.0",
         "wpackagist-plugin/tiny-compress-images": "~1.0",
         "wpackagist-plugin/wordpress-importer": "~0.6",
@@ -26,7 +26,7 @@
         "post-create-project-cmd": [
             "php -r \"copy('.env.example', '.env');\"",
             "php -r \"copy('config/database.php', 'config/local/database.php');\"",
-            "rm README.md LICENSE CHANGELOG.md CONTRIBUTING.md .styleci.yml"
+            "php -r \"array_map('unlink', ['README.md', 'LICENSE', 'CHANGELOG.md', 'CONTRIBUTING.md', '.styleci.yml']);\""
         ]
     },
     "extra":{
@@ -34,11 +34,11 @@
             "dev-master": "2.2-dev"
         },
         "installer-paths": {
-            "wp-content/mu-plugins/{$name}": ["type:wordpress-muplugin"],
-            "wp-content/plugins/{$name}": ["type:wordpress-plugin"],
-            "wp-content/themes/{$name}": ["type:wordpress-theme"]
+            "public/wp-content/mu-plugins/{$name}": ["type:wordpress-muplugin"],
+            "public/wp-content/plugins/{$name}": ["type:wordpress-plugin"],
+            "public/wp-content/themes/{$name}": ["type:wordpress-theme"]
         },
-        "wordpress-install-dir": "wordpress"
+        "wordpress-install-dir": "public/wordpress"
     },
     "minimum-stability": "dev",
     "prefer-stable": true
