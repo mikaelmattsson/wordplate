@@ -10,7 +10,7 @@
         }
     ],
     "require": {
-        "wordplate/framework": "2.2.*",
+        "wordplate/framework": "2.3.*",
         "wpackagist-plugin/advanced-custom-fields": "~4.0",
         "wpackagist-plugin/tiny-compress-images": "~1.0",
         "wpackagist-plugin/wordpress-importer": "~0.6",
@@ -26,19 +26,21 @@
         "post-create-project-cmd": [
             "php -r \"copy('.env.example', '.env');\"",
             "php -r \"copy('config/database.php', 'config/local/database.php');\"",
-            "php -r \"array_map('unlink', ['README.md', 'LICENSE', 'CHANGELOG.md', 'CONTRIBUTING.md', '.styleci.yml']);\""
+            "php -r \"array_map('unlink', ['README.md', 'LICENSE', 'CHANGELOG.md', 'CONTRIBUTING.md', '.styleci.yml']);\"",
+            "php plate clear",
+            "php plate salts:generate"
         ]
     },
     "extra":{
         "branch-alias": {
-            "dev-master": "2.2-dev"
+            "dev-master": "2.3-dev"
         },
         "installer-paths": {
-            "public/wp-content/mu-plugins/{$name}": ["type:wordpress-muplugin"],
-            "public/wp-content/plugins/{$name}": ["type:wordpress-plugin"],
-            "public/wp-content/themes/{$name}": ["type:wordpress-theme"]
+            "public/mu-plugins/{$name}": ["type:wordpress-muplugin"],
+            "public/plugins/{$name}": ["type:wordpress-plugin"],
+            "public/themes/{$name}": ["type:wordpress-theme"]
         },
-        "wordpress-install-dir": "public/wordpress"
+        "wordpress-install-dir": "wordpress"
     },
     "minimum-stability": "dev",
     "prefer-stable": true

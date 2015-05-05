@@ -14,11 +14,10 @@ require __DIR__.'/bootstrap/autoload.php';
 
 /** Load config variables */
 
-$configdir = env('WP_ENV') == 'local' ? 'config/local/' : 'config';
+$configdir = env('WP_ENV') == 'local' ? 'config/local/' : 'config/';
 
 $database = require_once $configdir . 'database.php';
 $theme = require_once 'config/theme.php';
-$app = require_once 'config/app.php';
 
 
 //** MySQL settings - You can get this info from your web host ** //
@@ -46,9 +45,15 @@ define('WP_HOME', env('WP_HOME', 'http://'.$_SERVER['HTTP_HOST']));
 /** Custom wordpress directory */
 define('WP_SITEURL', WP_HOME . '/wordpress');
 
+/** Set the home url to the current domain. */
+define('WP_HOME', env('WP_URL', 'http://'.$_SERVER['HTTP_HOST']));
+
+/** Custom WordPress directory. */
+define('WP_SITEURL', WP_HOME .'/wordpress');
+
 /** Custom content directory. */
-define('WP_CONTENT_DIR', __DIR__.'/wp-content');
-define('WP_CONTENT_URL', WP_HOME . '/wp-content');
+define('WP_CONTENT_DIR', __DIR__.'/public');
+define('WP_CONTENT_URL', WP_HOME . '/public');
 
 /** Set the trash to less days to optimize WordPress. */
 define('EMPTY_TRASH_DAYS', 7);
@@ -91,8 +96,10 @@ $table_prefix  = 'wp_';
  * It is strongly recommended that plugin and theme developers use WP_DEBUG
  * in their development environments.
  */
-define('WP_DEBUG', $app['debug']);
-define('WP_DEBUG_DISPLAY', $app['debug']);
+
+define('WP_DEBUG', env('WP_DEBUG', false));
+define('WP_DEBUG_DISPLAY', env('WP_DEBUG', false));
+define('SCRIPT_DEBUG', env('WP_DEBUG', false));
 
 /* That's all, stop editing! Happy blogging. */
 
